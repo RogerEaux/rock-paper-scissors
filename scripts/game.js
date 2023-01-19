@@ -25,28 +25,18 @@ function getPlayerChoice(){
 function playRound(){
     const playerChoice = getPlayerChoice()
     const computerChoice = getComputerChoice()
-    let result
+    let resultMessage
     if(playerChoice === computerChoice){
-        result = 'It\s a tie'
-    }else if(playerChoice === 'rock'){
-        if(computerChoice === 'paper'){
-            result = 'You lose! Rock beats Paper'
-        }else{
-            result = 'You win! Rock beats Scissors'
-        }
-    }else if(playerChoice === 'paper'){
-        if(computerChoice === 'rock'){
-            result = 'You win! Rock beats Paper'
-        }else{
-            result = 'You lose! Scissors beats Paper'
-        }
-    }else if(playerChoice === 'scissors'){
-        if(computerChoice === 'paper'){
-            result = 'You win! Scissors beats Paper'
-        }else{
-            result = 'You lose! Rock beats Scissors'
-        }
+        resultMessage = 'It\s a tie'
+    }else if(playerChoice === 'rock' && computerChoice === 'paper' || playerChoice === 'paper' && computerChoice === 'scissors' || playerChoice === 'scissors' && computerChoice === 'rock' ){
+        resultMessage = `You lose, ${computerChoice} beats ${playerChoice}`
+    }else if(playerChoice === 'rock' && computerChoice === 'scissors' || playerChoice === 'paper' && computerChoice === 'rock' || playerChoice === 'scissors' && computerChoice === 'paper' ){
+        resultMessage = `You win, ${playerChoice} beats ${computerChoice}`
     }
 
-    return result
+    return resultMessage
 }
+
+console.log(playRound())
+
+
