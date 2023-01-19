@@ -56,7 +56,7 @@ function game(){
     }else if(computerScore > playerScore){
         winner = `Computer wins ${computerScore} to ${playerScore}` 
     }else{
-        winner = 'It\s a tie'
+        winner = 'Neither machine nor man'
     }
     console.log(winner)
 }
