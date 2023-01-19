@@ -25,18 +25,40 @@ function getPlayerChoice(){
 function playRound(){
     const playerChoice = getPlayerChoice()
     const computerChoice = getComputerChoice()
-    let resultMessage
+    let result
     if(playerChoice === computerChoice){
-        resultMessage = 'It\s a tie'
+        result = 'It\s a tie'
     }else if(playerChoice === 'rock' && computerChoice === 'paper' || playerChoice === 'paper' && computerChoice === 'scissors' || playerChoice === 'scissors' && computerChoice === 'rock' ){
-        resultMessage = `You lose, ${computerChoice} beats ${playerChoice}`
+        result = `You lose, ${computerChoice} beats ${playerChoice}`
     }else if(playerChoice === 'rock' && computerChoice === 'scissors' || playerChoice === 'paper' && computerChoice === 'rock' || playerChoice === 'scissors' && computerChoice === 'paper' ){
-        resultMessage = `You win, ${playerChoice} beats ${computerChoice}`
+        result = `You win, ${playerChoice} beats ${computerChoice}`
     }
 
-    return resultMessage
+    return result
 }
 
-console.log(playRound())
+function game(){
+    let result
+    let playerScore = 0
+    let computerScore = 0
+    let winner
+    for(let i = 0; i < 5; i++){
+        result = playRound()
+        console.log(result)
+        if(result.slice(4,5) === 'w'){
+            playerScore++
+        }else if(result.slice(4,5) === 'l'){
+            computerScore++
+        }
+    }
+    if(playerScore > computerScore){
+        winner = `Player wins ${playerScore} to ${computerScore}` 
+    }else if(computerScore > playerScore){
+        winner = `Computer wins ${computerScore} to ${playerScore}` 
+    }else{
+        winner = 'It\s a tie'
+    }
+    console.log(winner)
+}
 
-
+game()
