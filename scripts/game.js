@@ -28,32 +28,54 @@ function playRound(playerChoice){
     return result;
 }
 
-function game(){
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        let playerChoice;
-        if(button.id === 'rock'){
-            playerChoice = 'Rock';
-        }else if(button.id === 'paper'){
-            playerChoice = 'Paper';
-        }else{
-            playerChoice = 'Scissors';
-        }
+function getPlayerChoice(){
+    const images = document.querySelectorAll('img');
+    images.forEach((image) => {
+        image.addEventListener('click', () => {
+            let playerChoice;
+            if(image.id === 'rock'){
+                playerChoice = 'Rock';
+            }else if(image.id === 'paper'){
+                playerChoice = 'Paper';
+            }else{
+                playerChoice = 'Scissors';
+            }
         playRound(playerChoice);
     });
 });
 }
 
-game();
-
 function startGame(){
     const content = document.querySelector('#content');
     content.removeChild(start);
+    const header = document.querySelector('h1');
+    header.textContent = 'Choose your fighter. First to 5 wins' 
+
+    const score = document.querySelector('#score');
+    const divPlayer = document.createElement('div');
+    const divComputer = document.createElement('div');
+    divPlayer.setAttribute('class', 'scoreBoard');
+    divPlayer.setAttribute('class', 'scoreBoard');
+
+    const text = document.createElement('p');
+    text.textContent = ``;
+    score.appendChild(text);
+
+    const scissorsImg = document.querySelector('#scissors');
+    scissorsImg.setAttribute('src', './images/scissors.gif');
+    const rockImg = document.querySelector('#rock');
+    rockImg.setAttribute('src', './images/rock.gif');
+    const paperImg = document.querySelector('#paper');
+    paperImg.setAttribute('src', './images/paper.gif');
 }
 
-const start = document.querySelector('#start');
-start.addEventListener('click', startGame);
+function game(){
+    const start = document.querySelector('#start');
+    start.addEventListener('click', startGame);
+    getPlayerChoice();
+}
+
+game();
 
 /*function game(){
     let result;

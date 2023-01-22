@@ -6,32 +6,41 @@ html, body{
 body{
     background-color: #00000b;
     height: 100vh;
+    color: aquamarine;
 }
 
 #header{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 100px;
-    margin-top: 150px;
+    margin-bottom: 48px;
+    margin-top: 96px;
     font-size: 24px;
     font-weight: 900;
-    color: aquamarine;
     padding: 30px;
+    text-align: center;
 }
 
 #content{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-button{
-    border: none;
-    background-color: #00000b;;
+.flex{
+    width: 100%;
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
 }
 
-button img{
+p{
+    font-size: 24px;
+}
+
+img{
     height: 200px;
     width: auto;
+    border-radius: 20px;
+    margin: 16px;
+    padding: 16px;
 }
 
 #start{
@@ -43,4 +52,5 @@ button img{
     font-size: 48px;
     font-weight: 900;
     color: aquamarine;
+    background-color: #00000b;
 }
