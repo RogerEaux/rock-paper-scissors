@@ -63,32 +63,34 @@ function getComputerChoice(){
 }
 
 function playRound(){
-    const playerChoice = this.id
+    playerChoice = this.id
     const computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    let result;
+    const result = document.querySelector('#result');
     if(playerChoice === computerChoice){
-        result = 'It\s a tie'
+        result.textContent = 'It\s a tie'
     }else if(playerChoice === 'rock' && computerChoice === 'paper' || playerChoice === 'paper' && computerChoice === 'scissors' || playerChoice === 'scissors' && computerChoice === 'rock' ){
-        result = `You lose, ${computerChoice} beats ${playerChoice}`;
+        result.textContent = `You lose, ${computerChoice} beats ${playerChoice}`;
     }else if(playerChoice === 'rock' && computerChoice === 'scissors' || playerChoice === 'paper' && computerChoice === 'rock' || playerChoice === 'scissors' && computerChoice === 'paper' ){
-        result = `You win, ${playerChoice} beats ${computerChoice}`;
+        result.textContent = `You win, ${playerChoice} beats ${computerChoice}`;
     }
-
-    console.log(result);
-    return result;
 }
 
-function game(){
+function adjustScores(){
+    const playerScore = document.querySelector('#player');
+    const computerScore = document.querySelector('#computer');
+}
+
+function play(){
     const start = document.querySelector('#start');
     start.addEventListener('click', startGame);
+
     const images = document.querySelectorAll('img');
     images.forEach((image) =>{
         image.addEventListener('click', playRound);
     });
 }
 
-game();
+play();
 
 /*function game(){
     let result;
