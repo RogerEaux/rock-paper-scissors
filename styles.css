@@ -46,17 +46,22 @@ body{
     align-items: center;
 }
 
-.score{
-    width: 50px;
-    height: 75px;
+.score, #result{
     border: 5px solid aquamarine;
     border-radius: 10px;
+}
+
+.score{
+    width: 60px;
+    height: 100px;
 }
 
 p{
     font-size: 24px;
     padding: 8px;
 }
+
+
 
 img{
     height: 175px;

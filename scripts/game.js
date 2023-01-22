@@ -15,6 +15,9 @@ function addImages(){
 }
 
 function addScoreboard(){
+    const result = document.querySelector('#content p');
+    result.setAttribute('id', 'result')
+
     const player = document.querySelector('#player');
     const computer = document.querySelector('#computer');
     
@@ -62,6 +65,28 @@ function getComputerChoice(){
     return computerChoice
 }
 
+function adjustScores(){
+    const playerScore = document.querySelector('#player .score p');
+    const computerScore = document.querySelector('#computer .score p');
+    const result = document.querySelector('#result');
+    if(playerScore.textContent >= 5 || computerScore.textContent >= 5){
+        const images = document.querySelectorAll('img');
+        images.forEach((image) =>{
+            image.removeEventListener('click', playRound);
+        });
+        if(playerScore.textContent >= 5){
+            result.textContent = `Player wins ${playerScore.textContent} to ${computerScore.textContent}`;
+        }else{
+            result.textContent = `Computer wins ${computerScore.textContent} to ${playerScore.textContent}`;
+        }
+    }
+    if(result.textContent.slice(4,5) === 'w'){
+        playerScore.textContent++;
+    }else if(result.textContent.slice(4,5) === 'l'){
+        computerScore.textContent++;
+    }
+}
+
 function playRound(){
     playerChoice = this.id
     const computerChoice = getComputerChoice();
@@ -73,11 +98,8 @@ function playRound(){
     }else if(playerChoice === 'rock' && computerChoice === 'scissors' || playerChoice === 'paper' && computerChoice === 'rock' || playerChoice === 'scissors' && computerChoice === 'paper' ){
         result.textContent = `You win, ${playerChoice} beats ${computerChoice}`;
     }
-}
 
-function adjustScores(){
-    const playerScore = document.querySelector('#player');
-    const computerScore = document.querySelector('#computer');
+    adjustScores();
 }
 
 function play(){
@@ -91,29 +113,3 @@ function play(){
 }
 
 play();
-
-/*function game(){
-    let result;
-    let playerScore = 0;
-    let computerScore = 0;
-    let winner;
-    for(let i = 0; i < 5; i++){
-        result = playRound();
-        console.log(result);
-        if(result.slice(4,5) === 'w'){
-            playerScore++;
-        }else if(result.slice(4,5) === 'l'){
-            computerScore++;
-        }
-    }
-    if(playerScore > computerScore){
-        winner = `Player wins ${playerScore} to ${computerScore}`;
-    }else if(computerScore > playerScore){
-        winner = `Computer wins ${computerScore} to ${playerScore}`; 
-    }else{
-        winner = 'Neither machine nor man';
-    }
-    console.log(winner);
-}*/
-
-
