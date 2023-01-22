@@ -88,6 +88,7 @@ function adjustScores(){
 }
 
 function playRound(){
+    this.classList.add('selected')
     playerChoice = this.id
     const computerChoice = getComputerChoice();
     const result = document.querySelector('#result');
@@ -109,6 +110,7 @@ function play(){
     const images = document.querySelectorAll('img');
     images.forEach((image) =>{
         image.addEventListener('click', playRound);
+        image.addEventListener('transitionend', () => image.classList.remove('selected'));
     });
 }
 
