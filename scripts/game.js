@@ -51,11 +51,13 @@ function startGame(){
     const header = document.querySelector('h1');
     header.textContent = 'Choose your fighter. First to 5 wins' 
 
-    const score = document.querySelector('#score');
+    const scoreboard = document.querySelector('#scoreboard');
     const divPlayer = document.createElement('div');
     const divComputer = document.createElement('div');
-    divPlayer.setAttribute('class', 'scoreBoard');
-    divPlayer.setAttribute('class', 'scoreBoard');
+    divPlayer.setAttribute('class', 'score');
+    divComputer.setAttribute('class', 'score');
+    scoreboard.appendChild(divPlayer);
+    scoreboard.appendChild(divComputer);
 
     const text = document.createElement('p');
     text.textContent = ``;
@@ -73,6 +75,7 @@ function game(){
     const start = document.querySelector('#start');
     start.addEventListener('click', startGame);
     getPlayerChoice();
+
 }
 
 game();
