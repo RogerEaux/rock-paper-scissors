@@ -32,13 +32,28 @@ function game(){
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        const playerChoice = button.textContent;
+        let playerChoice;
+        if(button.id === 'rock'){
+            playerChoice = 'Rock';
+        }else if(button.id === 'paper'){
+            playerChoice = 'Paper';
+        }else{
+            playerChoice = 'Scissors';
+        }
         playRound(playerChoice);
     });
 });
 }
 
 game();
+
+function startGame(){
+    const content = document.querySelector('#content');
+    content.removeChild(start);
+}
+
+const start = document.querySelector('#start');
+start.addEventListener('click', startGame);
 
 /*function game(){
     let result;

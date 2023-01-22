@@ -1,2 +1,2 @@
 # rock-paper-scissors
-Rock, paper, scissors program for DevTools Console
+Rock, paper, scissors with a UI
