@@ -45,30 +45,53 @@ function getPlayerChoice(){
 });
 }
 
-function startGame(){
+function changeHeader(){
     const content = document.querySelector('#content');
     content.removeChild(start);
     const header = document.querySelector('h1');
-    header.textContent = 'Choose your fighter. First to 5 wins' 
+    header.textContent = 'Choose your fighter. First to 5 wins';
+}
 
-    const scoreboard = document.querySelector('#scoreboard');
-    const divPlayer = document.createElement('div');
-    const divComputer = document.createElement('div');
-    divPlayer.setAttribute('class', 'score');
-    divComputer.setAttribute('class', 'score');
-    scoreboard.appendChild(divPlayer);
-    scoreboard.appendChild(divComputer);
-
-    const text = document.createElement('p');
-    text.textContent = ``;
-    score.appendChild(text);
-
+function addImages(){
     const scissorsImg = document.querySelector('#scissors');
     scissorsImg.setAttribute('src', './images/scissors.gif');
     const rockImg = document.querySelector('#rock');
     rockImg.setAttribute('src', './images/rock.gif');
     const paperImg = document.querySelector('#paper');
     paperImg.setAttribute('src', './images/paper.gif');
+}
+
+function addScoreboard(){
+    const player = document.querySelector('#player');
+    const computer = document.querySelector('#computer');
+    
+    const divPlayer = document.createElement('div');
+    const divComputer = document.createElement('div');
+    divPlayer.setAttribute('class', 'score flex');
+    divComputer.setAttribute('class', 'score flex');
+
+    const paraPlayer = document.createElement('p');
+    const paraComputer = document.createElement('p');
+    paraPlayer.textContent = 'Player';
+    paraComputer.textContent = 'Computer';
+    player.appendChild(paraPlayer);
+    computer.appendChild(paraComputer);
+
+    const paraPlayerScore = document.createElement('p');
+    const paraComputerScore = document.createElement('p');
+    paraPlayerScore.textContent = 0;
+    paraComputerScore.textContent = 0;
+    divPlayer.appendChild(paraPlayerScore);
+    divComputer.appendChild(paraComputerScore);
+
+    player.appendChild(divPlayer);
+    computer.appendChild(divComputer);
+}
+
+function startGame(){
+    changeHeader();
+    addScoreboard();
+    addImages();
 }
 
 function game(){
