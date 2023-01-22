@@ -49,7 +49,7 @@ function changeHeader(){
     const content = document.querySelector('#content');
     content.removeChild(start);
     const header = document.querySelector('h1');
-    header.textContent = 'Choose your fighter. First to 5 wins';
+    header.textContent = 'Choose your fighter. First to 5 wins.';
 }
 
 function addImages(){
