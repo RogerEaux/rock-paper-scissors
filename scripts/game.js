@@ -69,6 +69,11 @@ function adjustScores(){
     const playerScore = document.querySelector('#player .score p');
     const computerScore = document.querySelector('#computer .score p');
     const result = document.querySelector('#result');
+    if(result.textContent.slice(4,5) === 'w'){
+        playerScore.textContent++;
+    }else if(result.textContent.slice(4,5) === 'l'){
+        computerScore.textContent++;
+    }
     if(playerScore.textContent >= 5 || computerScore.textContent >= 5){
         const images = document.querySelectorAll('img');
         images.forEach((image) =>{
@@ -79,11 +84,6 @@ function adjustScores(){
         }else{
             result.textContent = `Computer wins ${computerScore.textContent} to ${playerScore.textContent}`;
         }
-    }
-    if(result.textContent.slice(4,5) === 'w'){
-        playerScore.textContent++;
-    }else if(result.textContent.slice(4,5) === 'l'){
-        computerScore.textContent++;
     }
 }
 
